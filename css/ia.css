@@ -1,0 +1,146 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E RESET
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    /* 60% Dominante: Fundo Gradiente Dinâmico */
+    background: linear-gradient(-45deg, #0b192c, #1e88e5, #071e1d, #38b2ac, #15304b);
+    background-size: 400% 400%;
+    animation: efeitoGradiente 15s ease infinite;
+    color: #ffffff;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+@keyframes efeitoGradiente {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ==========================================================================
+   REGRA 30% - ESTRUTURA (Hotbar Glassmorphism)
+   ========================================================================== */
+.hotbar {
+    background-color: rgba(11, 25, 44, 0.6); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hotbar table {
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.hotbar th {
+    padding: 0 25px;
+}
+
+.hotbar a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+/* ==========================================================================
+   CONTEÚDO PRINCIPAL (HOME)
+   ========================================================================== */
+.home {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 160px 20px 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    perspective: 1200px; /* Ativa a câmera para efeitos 3D reais */
+}
+
+.home h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #ffffff 40%, #38b2ac 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 4px 10px rgba(56, 178, 172, 0.3));
+}
+
+/* ==========================================================================
+   LOGO: GIRO 3D ESPACIAL COMPLETO (Automático e Contínuo)
+   ========================================================================== */
+.home img {
+    display: block;
+    max-width: 220px;
+    height: auto;
+    margin: 0 auto 55px auto;
+    filter: drop-shadow(0px 15px 30px rgba(56, 178, 172, 0.4));
+    
+    transform-style: preserve-3d;
+    will-change: transform; 
+    
+    /* Gira inclinando-se em múltiplos eixos sem sumir quando fica de lado */
+    animation: girarLogoEspacial 12s linear infinite;
+}
+
+@keyframes girarLogoEspacial {
+    0% { transform: translateY(0px) rotate3d(0, 0, 0, 0deg); }
+    50% { transform: translateY(-15px) rotate3d(1, 1, 0, 180deg); }
+    100% { transform: translateY(0px) rotate3d(1, 1, 0, 360deg); }
+}
+
+/* ==========================================================================
+   PARÁGRAFO: PREPARADO PARA INTERAÇÃO MOLECULAR (JS)
+   ========================================================================== */
+.p-interativo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: default;
+    user-select: none;
+    padding: 20px;
+    display: block;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estilização cirúrgica para as letras injetadas pelo JavaScript */
+.p-interativo span {
+    display: inline-block;
+    will-change: transform, color;
+    
+    /* Transição em efeito 'mola magnética' para a letra voltar pro lugar original */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                color 0.3s ease, 
+                text-shadow 0.3s ease;
+}
+
+/* ==========================================================================
+   REGRA 10% - HOVERS E INTERAÇÕES DO MENU (Hotbar)
+   ========================================================================== */
+.hotbar a:hover {
+    color: #38b2ac; 
+    text-shadow: 0 0 10px rgba(56, 178, 172, 0.8

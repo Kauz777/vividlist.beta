@@ -1,0 +1,229 @@
+/* Seleciona todos os elementos da página */
+* {
+    /* Remove a margem padrão */
+    margin: 0;
+    /* Remove o espaçamento interno padrão */
+    padding: 0;
+    /* Faz com que bordas e preenchimentos não aumentem o tamanho do elemento */
+    box-sizing: border-box;
+    /* Define o conjunto de fontes de texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Configurações do corpo da página */
+body {
+    /* Cria um fundo em gradiente inclinado com as cores do tema */
+    background: linear-gradient(-45deg, #0b192c, #1e88e5, #071e1d, #38b2ac, #15304b);
+    /* Aumenta o tamanho do fundo para que ele possa se movimentar */
+    background-size: 400% 400%;
+    /* Aplica a animação que move o gradiente continuamente */
+    animation: efeitoGradiente 15s ease infinite;
+    /* Define a cor padrão dos textos como branco */
+    color: #ffffff;
+    /* Esconde qualquer barra de rolagem horizontal */
+    overflow-x: hidden;
+    /* Força a altura mínima para cobrir toda a tela visível */
+    min-height: 100vh;
+}
+
+/* Cria a animação que altera a posição do gradiente de fundo */
+@keyframes efeitoGradiente {
+    /* Define a posição inicial do gradiente */
+    0% { background-position: 0% 50%; }
+    /* Move o gradiente até o meio do tempo da animação */
+    50% { background-position: 100% 50%; }
+    /* Retorna o gradiente para a posição inicial */
+    100% { background-position: 0% 50%; }
+}
+
+/* Configura a barra de menu superior */
+.hotbar {
+    /* Define a cor de fundo escura com 60% de opacidade */
+    background-color: rgba(11, 25, 44, 0.6); 
+    /* Aplica um efeito de desfoque estilo vidro no fundo */
+    backdrop-filter: blur(12px);
+    /* Garante o funcionamento do efeito de desfoque no navegador Safari */
+    -webkit-backdrop-filter: blur(12px);
+    /* Faz o menu ocupar toda a largura da tela */
+    width: 100%;
+    /* Fixa o menu no topo da tela durante a rolagem */
+    position: fixed;
+    /* Alinha o menu no limite superior */
+    top: 0;
+    /* Alinha o menu no limite esquerdo */
+    left: 0;
+    /* Adiciona preenchimento interno em cima e embaixo */
+    padding: 20px 0;
+    /* Adiciona uma sombra suave abaixo do menu */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    /* Mantém o menu na camada acima de outros elementos */
+    z-index: 1000;
+    /* Adiciona uma linha fina transparente na parte inferior do menu */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Configura a tabela que organiza os links do menu */
+.hotbar table {
+    /* Centraliza a tabela horizontalmente na tela */
+    margin: 0 auto;
+    /* Junta as bordas das células para eliminar espaços vazios */
+    border-collapse: collapse;
+}
+
+/* Configura os itens de cabeçalho da tabela do menu */
+.hotbar th {
+    /* Adiciona espaçamento nas laterais de cada link */
+    padding: 0 25px;
+}
+
+/* Configura os links de texto dentro do menu */
+.hotbar a {
+    /* Define a cor do texto como branco semi-transparente */
+    color: rgba(255, 255, 255, 0.8);
+    /* Remove o sublinhado padrão dos links */
+    text-decoration: none;
+    /* Define o tamanho da fonte */
+    font-size: 14px;
+    /* Deixa o texto em negrito */
+    font-weight: 700;
+    /* Aumenta o espaço entre as letras */
+    letter-spacing: 2px;
+    /* Transforma todas as letras em maiúsculas */
+    text-transform: uppercase;
+    /* Aplica suavidade nas transições visuais (efeito hover) */
+    transition: all 0.3s ease;
+}
+
+/* Configura a seção principal da página */
+.home {
+    /* Restringe a largura máxima da seção */
+    max-width: 1200px;
+    /* Centraliza a seção horizontalmente */
+    margin: 0 auto;
+    /* Define os espaçamentos internos para isolar o menu fixo */
+    padding: 160px 20px 60px 20px;
+    /* Centraliza os textos alinhados internamente */
+    text-align: center;
+    /* Ativa o modo Flexbox para alinhar os elementos */
+    display: flex;
+    /* Organiza os elementos verticalmente em formato de coluna */
+    flex-direction: column;
+    /* Centraliza os elementos na horizontal */
+    align-items: center;
+    /* Centraliza os elementos na vertical */
+    justify-content: center;
+    /* Define a altura mínima baseada na tela */
+    min-height: 90vh;
+    /* Cria a profundidade de perspectiva necessária para o efeito 3D */
+    perspective: 1200px; 
+}
+
+/* Configura o título principal */
+.home h1 {
+    /* Define o tamanho do título */
+    font-size: 4.5rem;
+    /* Define o peso máximo do negrito */
+    font-weight: 900;
+    /* Aproxima levemente as letras do título */
+    letter-spacing: -2px;
+    /* Define o espaçamento abaixo do título */
+    margin-bottom: 30px;
+    /* Cria um fundo em gradiente para o texto */
+    background: linear-gradient(135deg, #ffffff 40%, #38b2ac 100%);
+    /* Restringe o fundo gradiente para o formato das letras */
+    -webkit-background-clip: text;
+    /* Torna a cor interna do texto transparente para exibir o gradiente */
+    -webkit-text-fill-color: transparent;
+    /* Aplica um efeito de sombra projetada no contorno do texto */
+    filter: drop-shadow(0px 4px 10px rgba(56, 178, 172, 0.3));
+}
+
+/* Configura a imagem da logo */
+.home img {
+    /* Define o comportamento da imagem em bloco */
+    display: block;
+    /* Limita a largura máxima da imagem */
+    max-width: 220px;
+    /* Ajusta a altura proporcionalmente de forma automática */
+    height: auto;
+    /* Centraliza e define uma margem na parte inferior */
+    margin: 0 auto 55px auto;
+    /* Aplica um brilho e sombra ao redor do contorno da imagem */
+    filter: drop-shadow(0px 15px 30px rgba(56, 178, 172, 0.4));
+    /* Preserva o ambiente 3D para as rotações do elemento */
+    transform-style: preserve-3d;
+    /* Informa ao navegador que o elemento mudará sua transformação constantemente */
+    will-change: transform; 
+    /* Ativa a animação de rotação contínua e linear */
+    animation: girarLogoEspacial 12s linear infinite;
+}
+
+/* Cria a animação de rotação espacial em 3D da imagem */
+@keyframes girarLogoEspacial {
+    /* Estado inicial sem elevação e sem rotação */
+    0% { transform: translateY(0px) rotate3d(0, 0, 0, 0deg); }
+    /* Metade do tempo: eleva 15px e rotaciona 180 graus nos eixos X e Y */
+    50% { transform: translateY(-15px) rotate3d(1, 1, 0, 180deg); }
+    /* Estado final: retorna à altura inicial e completa o ciclo em 360 graus */
+    100% { transform: translateY(0px) rotate3d(1, 1, 0, 360deg); }
+}
+
+/* Configura o parágrafo que interage com o mouse */
+.p-interativo {
+    /* Define o tamanho da fonte */
+    font-size: 1.25rem;
+    /* Define o peso do negrito */
+    font-weight: 800;
+    /* Define o espaçamento inicial das letras */
+    letter-spacing: 5px;
+    /* Exibe o texto em letras maiúsculas */
+    text-transform: uppercase;
+    /* Define a cor padrão do texto em branco suave */
+    color: rgba(255, 255, 255, 0.85);
+    /* Mantém a seta padrão do mouse sobre o parágrafo */
+    cursor: default;
+    /* Bloqueia a seleção ou realce azul de texto pelo usuário */
+    user-select: none;
+    /* Adiciona preenchimento interno ao redor do elemento */
+    padding: 20px;
+    /* Define o comportamento do elemento em bloco */
+    display: block;
+    /* Limita a largura do parágrafo */
+    max-width: 800px;
+    /* Centraliza o bloco na horizontal */
+    margin: 0 auto;
+}
+
+/* Configura os caracteres individuais criados pelo script JavaScript */
+.p-interativo span {
+    /* Permite que cada letra se mova de forma independente na tela */
+    display: inline-block;
+    /* Informa que a transformação e a cor mudarão dinamicamente */
+    will-change: transform, color;
+    /* Define as propriedades de transição com efeito amortecido de mola */
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                color 0.3s ease, 
+                text-shadow 0.3s ease;
+}
+
+/* Configura o comportamento do link do menu ao receber o mouse */
+.hotbar a:hover {
+    /* Altera a cor do texto para o verde-água do tema */
+    color: #38b2ac; 
+    /* Adiciona um efeito de brilho neon no texto */
+    text-shadow: 0 0 10px rgba(56, 178, 172, 0.8);
+}
+
+/* Configura a borda inicial invisível para o link Home */
+.home-hotbar a {
+    /* Adiciona uma linha de base transparente para evitar solavancos na tela */
+    border-bottom: 2px solid transparent;
+}
+
+/* Configura a interação específica no link Home ao receber o mouse */
+.home-hotbar a:hover {
+    /* Torna a linha inferior visível com a cor verde-água */
+    border-bottom: 2px solid #38b2ac;
+    /* Afasta o texto em 6 pixels em relação à linha criada */
+    padding-bottom: 6px;
+}
