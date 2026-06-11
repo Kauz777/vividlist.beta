@@ -7,26 +7,61 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-        <!--HOTBAR MENU FIXO-->
 
-        <div class="hotbar">  <!--GRUPO CLASS = HOTBAR MENU-->
-        <table> <!--INICIO DO TABLE/LISTA USADA PARA MENU-->
-         <th class="home-hotbar"><a href="#HOME">HOME</a></th>
-         <th class="sobre-hotbar"><a href="">SOBRE</a></th>
-         <th class="feedback-hotbar"><a href="">FEEDBACK</a></th>
-         <th class="checklist-hotbar"><a href="">CHECK LIST</a></th>
-        </table>    
+        <div class="hotbar">
+            <table>
+                <th class="home-hotbar"><a href="#HOME">HOME</a></th>
+                <th class="sobre-hotbar"><a href="#SOBRE">SOBRE</a></th>
+                <th class="feedback-hotbar"><a href="#FEEDBACK">FEEDBACK</a></th>
+                <th class="checklist-hotbar"><a href="#CHECKLIST">CHECK LIST</a></th>
+            </table>    
         </div>
 
-        <!--HOME INICIO DA PAGINA-->
+        <div class="page-container">
 
-        <div class="home" id="HOME"> 
-        <h1>BEM-VINDO</h1>    
-        <img src="./image/inicio/logo.png">
-        <P class="p-interativo">VIVIDLIST SEU CHECKLIST COM SEU TEMA</P>
+            <section class="section-page home active" id="HOME"> 
+                <h1>BEM-VINDO</h1>    
+                <img src="./image/inicio/logo.png" alt="Logo">
+                <p class="p-interativo">VIVIDLIST SEU CHECKLIST COM SEU TEMA</p>
+            </section>
+
+            <section class="section-page sobre" id="SOBRE">
+                <h1>SOBRE NÓS</h1>
+                
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn">&lt;</button>
+                    
+                    <div class="carousel-track-container">
+                        <div class="carousel-track">
+                            <div class="carousel-slide active">
+                                <img src="./image/sobre/1.png" alt="Personalidade">
+                                <h2>SEU CHECKLIST, SUA PERSONALIDADE.</h2>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./image/sobre/2.png" alt="Estilo">
+                                <h2>ALTERE O ESTILO E O FUNDO DA SUA MANEIRA.</h2>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./image/sobre/3.png" alt="Organização">
+                                <h2>ORGANIZAÇÃO INTELIGENTE PARA O DIA A DIA.</h2>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./image/sobre/4.png" alt="Produtividade">
+                                <h2>MANTENHA O FOCO NAS SUAS METAS PRINCIPAIS.</h2>
+                            </div>
+                            <div class="carousel-slide">
+                                <img src="./image/sobre/5.png" alt="Gamificação">
+                                <h2>CONQUISTE SEUS DIAS COM ESTILO E DO SEU JEITO.</h2>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-btn next-btn">&gt;</button>
+                </div>
+            </section>
+            
         </div>
 
-
-        <script src="./javascript/script.js" defer></script>
+        <script src="./javascript/script.js"></script>
 </body>
 </html>

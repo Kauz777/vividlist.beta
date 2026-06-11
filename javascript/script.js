@@ -42,3 +42,89 @@ textEl.addEventListener('mouseleave', () => {
         span.style.textShadow = '';
     });
 });
+
+// ==========================================
+// CONTROLE DO CARROSSEL DA SEÇÃO SOBRE
+// ==========================================
+const slides = document.querySelectorAll('.carousel-slide');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+let currentSlide = 0;
+
+function showSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+}
+
+prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+
+// ==========================================
+// SISTEMA DE TRANSIÇÃO CINEASTA ENTRE SEÇÕES
+// ==========================================
+const sections = document.querySelectorAll('.section-page');
+const menuLinks = document.querySelectorAll('.hotbar a');
+let activeSectionIndex = 0;
+let isTransitioning = false;
+
+// Função principal que muda a tela aplicando a animação
+function changePage(targetIndex) {
+    if (targetIndex < 0 || targetIndex >= sections.length || isTransitioning) return;
+    
+    isTransitioning = true;
+    
+    // Tira o foco/visibilidade da seção antiga
+    sections[activeSectionIndex].classList.remove('active');
+    
+    activeSectionIndex = targetIndex;
+    
+    // Aplica o efeito elegante e foca na nova página
+    setTimeout(() => {
+        sections[activeSectionIndex].classList.add('active');
+        window.scrollTo({ top: 0 });
+        isTransitioning = false;
+    }, 150); // Delay suave para sincronizar o efeito de encolhimento
+}
+
+// 1. Escutando cliques nos links do menu superior (Hotbar)
+menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId.startsWith('#')) {
+            e.preventDefault();
+            const targetIndex = Array.from(sections).findIndex(s => `#${s.id}` === targetId);
+            if (targetIndex !== -1) changePage(targetIndex);
+        }
+    });
+});
+
+// 2. Escutando o scroll (roda do mouse) para PCs
+window.addEventListener('wheel', (e) => {
+    if (isTransitioning) return;
+    if (e.deltaY > 50) {
+        changePage(activeSectionIndex + 1); // Rola para baixo
+    } else if (e.deltaY < -50) {
+        changePage(activeSectionIndex - 1); // Rola para cima
+    }
+}, { passive: true });
+
+// 3. Escutando gestos de arrastar em Celulares/Touchscreens
+let touchStartY = 0;
+window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+}, { passive: true });
+
+window.addEventListener('touchend', (e) => {
+    if (isTransitioning) return;
+    const touchEndY = e.changedTouches[0].clientY;
+    const diffY = touchStartY - touchEndY;
+
+    if (diffY > 80) {
+        changePage(activeSectionIndex + 1); // Arrastou para cima -> Próxima página
+    } else if (diffY < -80) {
+        changePage(activeSectionIndex - 1); // Arrastou para baixo -> Página anterior
+    }
+}, { passive: true });
+

@@ -227,3 +227,190 @@ body {
     /* Afasta o texto em 6 pixels em relação à linha criada */
     padding-bottom: 6px;
 }
+
+/* ==========================================
+   SISTEMA DE TRANSIÇÃO ENTRE SEÇÕES (TELAS)
+   ========================================== */
+
+/* Container que gerencia a transição de páginas */
+.page-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Base de cada seção para a transição */
+.section-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    /* Efeito de zoom out + fade original */
+    transform: scale(0.85);
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+}
+
+/* Estado ativo: Seção visível na tela */
+.section-page.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1);
+    z-index: 10;
+}
+
+
+/* ==========================================
+   ESTILIZAÇÃO DO CARROSSEL EXPANDIDO (SOBRE NÓS)
+   ========================================== */
+
+.sobre {
+    max-width: 1400px; /* Aumentado para dar mais respiro */
+    margin: 0 auto;
+    padding: 120px 40px 60px 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.sobre h1 {
+    font-size: 3.8rem;
+    font-weight: 900;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #ffffff 40%, #38b2ac 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 4px 10px rgba(56, 178, 172, 0.3));
+}
+
+/* Container do Carrossel - AGORA MUITO MAIOR */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1100px; /* Aumentado de 850px para 1100px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(11, 25, 44, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 32px; /* Bordas um pouco mais arredondadas para o tamanho */
+    padding: 50px; /* Mais espaçamento interno */
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+}
+
+/* Área que esconde os slides inativos */
+.carousel-track-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 550px; /* Aumentado de 450px para 550px para dar destaque */
+}
+
+/* Configurações de cada Slide */
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(50px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Slide Atual Ativo */
+.carousel-slide.active {
+    position: relative;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* Imagens grandes dentro do carrossel */
+.carousel-slide img {
+    max-width: 100%;
+    height: auto;
+    max-height: 380px; /* Aumentado de 280px para 380px */
+    object-fit: contain;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    filter: drop-shadow(0px 15px 35px rgba(56, 178, 172, 0.4));
+}
+
+/* Textos H2 internos dos slides */
+.carousel-slide h2 {
+    font-size: 1.8rem; /* Texto maior para acompanhar o tamanho */
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.95);
+    padding: 0 40px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Botões do Carrossel (Estilo Glassmorphism Neon) */
+.carousel-btn {
+    position: absolute;
+    z-index: 15;
+    background: rgba(56, 178, 172, 0.1);
+    border: 1px solid rgba(56, 178, 172, 0.4);
+    color: #ffffff;
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(56, 178, 172, 0.4);
+    box-shadow: 0 0 20px rgba(56, 178, 172, 0.7);
+    transform: scale(1.1);
+}
+
+.prev-btn { left: -30px; }
+.next-btn { right: -30px; }
+
+/* Responsividade Adaptada */
+@media (max-width: 1024px) {
+    .carousel-container { max-width: 90%; }
+    .carousel-track { height: 480px; }
+    .carousel-slide img { max-height: 300px; }
+    .carousel-slide h2 { font-size: 1.4rem; }
+}
+
+@media (max-width: 768px) {
+    .home h1 { font-size: 2.8rem; }
+    .sobre { padding: 120px 20px 40px 20px; }
+    .sobre h1 { font-size: 2.5rem; }
+    .carousel-container { padding: 30px 15px; }
+    .carousel-track { height: 400px; }
+    .carousel-slide img { max-height: 240px; }
+    .carousel-slide h2 { font-size: 1.1rem; padding: 0 10px; }
+    .carousel-btn { width: 45px; height: 45px; font-size: 20px; }
+    .prev-btn { left: -15px; }
+    .next-btn { right: -15px; }
+}
