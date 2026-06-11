@@ -23,7 +23,7 @@ body {
     /* Esconde qualquer barra de rolagem horizontal */
     overflow-x: hidden;
     /* Força a altura mínima para cobrir toda a tela visível */
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 /* Cria a animação que altera a posição do gradiente de fundo */
@@ -113,7 +113,7 @@ body {
     /* Centraliza os elementos na vertical */
     justify-content: center;
     /* Define a altura mínima baseada na tela */
-    min-height: 90vh;
+    min-height: 90dvh;
     /* Cria a profundidade de perspectiva necessária para o efeito 3D */
     perspective: 1200px; 
 }
@@ -236,7 +236,7 @@ body {
 .page-container {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
 }
 
 /* Base de cada seção para a transição */
@@ -245,7 +245,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     opacity: 0;
     pointer-events: none;
     /* Efeito de zoom out + fade original */
