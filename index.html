@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Check List</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+
+             <!--HOTBAR MENU-->    
+          
+        <!--MENU REALIZADO REFERENTE A ESTUDOS COM TABLE E A HREF-->
 
         <div class="hotbar">
             <table>
@@ -17,6 +21,8 @@
             </table>    
         </div>
 
+                <!--HOMEPAGE-->
+
         <div class="page-container">
 
             <section class="section-page home active" id="HOME"> 
@@ -24,6 +30,8 @@
                 <img src="./image/inicio/logo.png" alt="Logo">
                 <p class="p-interativo">VIVIDLIST SEU CHECKLIST COM SEU TEMA</p>
             </section>
+
+                <!--SOBRE PAGE -->
 
             <section class="section-page sobre" id="SOBRE">
                 <h1>SOBRE NÓS</h1>
@@ -59,9 +67,36 @@
                     <button class="carousel-btn next-btn">&gt;</button>
                 </div>
             </section>
-            
+
+             <!-- FEEDBACK PAGE -->
+
+             
+<section class="section-page feedback" id="FEEDBACK">
+
+    <h1>Deixe Seu Feedback De Melhorias Para Nossos Devs</h1>
+
+    <form id="feedbackForm">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+
+        <input type="email" id="email" placeholder="Seu e-mail" required>
+
+        <textarea
+            id="mensagem"
+            placeholder="Digite seu feedback..."
+            rows="5"
+            required></textarea>
+
+        <button type="submit">Enviar Feedback</button>
+    </form>
+
+    <h2>Feedbacks dos Usuários</h2>
+
+    <div id="feedbacks"></div>
+
+</section>
+
         </div>
 
-        <script src="javascript/script.js"></script>
+        <script src="./javascript/script.js"></script>
 </body>
 </html>
